@@ -1,6 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // GSAP Animations
-    gsap.registerPlugin(ScrollTrigger);
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+
+    mobileMenuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
 
     // Hero Section Animations
     gsap.to('.animated-text', {
@@ -19,19 +23,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Parallax effect for hero pattern
-    const heroPattern = document.querySelector('.hero-pattern');
-    if (heroPattern) {
-        gsap.to(heroPattern, {
-            y: '20%',
-            ease: 'none',
-            scrollTrigger: {
-                trigger: '.hero',
-                start: 'top top',
-                end: 'bottom top',
-                scrub: true
-            }
-        });
-    }
+    gsap.to('.hero-pattern', {
+        y: '20%',
+        ease: 'none',
+        scrollTrigger: {
+            trigger: '.hero',
+            start: 'top top',
+            end: 'bottom top',
+            scrub: true
+        }
+    });
 
     // Scroll Animations
     gsap.utils.toArray('section').forEach(section => {
@@ -48,18 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Parallax Effect for Hero Background
-    gsap.to('.hero-background', {
-        yPercent: 50,
-        ease: 'none',
-        scrollTrigger: {
-            trigger: '.hero',
-            start: 'top top',
-            end: 'bottom top',
-            scrub: true
-        }
-    });
-
     // Service Card Hover Effect
     const serviceCards = document.querySelectorAll('.service-card');
     serviceCards.forEach(card => {
@@ -71,38 +60,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Innovation Showcase Horizontal Scroll
-    const innovationShowcase = document.querySelector('.innovation-showcase');
-    let isDown = false;
-    let startX;
-    let scrollLeft;
-
-    innovationShowcase.addEventListener('mousedown', (e) => {
-        isDown = true;
-        startX = e.pageX - innovationShowcase.offsetLeft;
-        scrollLeft = innovationShowcase.scrollLeft;
-    });
-
-    innovationShowcase.addEventListener('mouseleave', () => {
-        isDown = false;
-    });
-
-    innovationShowcase.addEventListener('mouseup', () => {
-        isDown = false;
-    });
-
-    innovationShowcase.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - innovationShowcase.offsetLeft;
-        const walk = (x - startX) * 2;
-        innovationShowcase.scrollLeft = scrollLeft - walk;
-    });
-
     // Smooth Scrolling for Navigation
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
+            navMenu.classList.remove('active');
             document.querySelector(this.getAttribute('href')).scrollIntoView({
                 behavior: 'smooth'
             });
@@ -110,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Form Submission
-    const form = document.getElementById('contact-form');
+    const form = document.querySelector('form');
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         // Here you would typically send the form data to a server
@@ -122,21 +84,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('header');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-            header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            header.classList.add('bg-white', 'shadow-md');
         } else {
-            header.style.backgroundColor = 'transparent';
-            header.style.boxShadow = 'none';
+            header.classList.remove('bg-white', 'shadow-md');
         }
     });
-
-    // Virtual Office Tour (placeholder)
-    const virtualTourContainer = document.getElementById('virtual-tour-container');
-    if (virtualTourContainer) {
-        // This is a placeholder for a virtual tour feature
-        // You would typically integrate a 360-degree view or 3D tour library here
-        virtualTourContainer.innerHTML = '<p>Virtual Tour Coming Soon</p>';
-    }
 
     // Animated Counter for Experience Badge
     const experienceBadge = document.querySelector('.experience-badge');
