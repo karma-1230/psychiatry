@@ -89,30 +89,6 @@ header .container {
     color: var(--primary-color);
 }
 
-.menu-toggle {
-    display: none; /* Hidden on larger screens */
-    font-size: 2rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.nav-menu {
-    display: none; /* Hidden by default */
-    flex-direction: column;
-    position: absolute;
-    top: 60px; /* Adjust based on your header height */
-    right: 0;
-    background-color: var(--card-background);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    z-index: 100;
-}
-
-.nav-menu.show {
-    display: flex; /* Show the menu when toggled */
-}
-
-
 nav ul {
     display: flex;
     list-style: none;
@@ -629,12 +605,6 @@ footer {
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-    .menu-toggle {
-        display: block; /* Show toggle button on mobile */
-    }
-    nav ul {
-        flex-direction: column; /* Stack items on mobile */
-    }
     h1 {
         font-size: 3rem;
     }
@@ -657,66 +627,6 @@ footer {
         text-align: center;
         gap: 30px;
     }
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
-
-    .service-card,
-    .resource-item {
-        padding: 1.5rem;
-    }
-}
-
-@media (max-width: 640px) {
-    .menu-toggle {
-        display: block; /* Show toggle button on mobile */
-    }
-    nav ul {
-        flex-direction: column; /* Stack items on mobile */
-    }
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    .hero-cta {
-        flex-direction: column;
-    }
-
-    .qualification-cards {
-        grid-template-columns: 1fr;
-    }
-}
-
-.btn {
-  padding: 6px 12px;
-  border-radius: 9999px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.btn-primary {
-  background-color: var(--primary-color);
-  color: var(--light-text-color);
-  
-}
-
-.btn-primary:hover {
-  opacity: 0.9;
-}
-
-.btn-secondary {
-  background-color: var(--light-text-color);
-  color: var(--primary-color);
-  border: 2px solid var(--primary-color);
-}
-
-.btn-secondary:hover {
-  background-color: var(--primary-color);
-  color: var(--light-text-color);
 }
 
 /* Accessibility Styles */
@@ -731,6 +641,3 @@ footer {
     white-space: nowrap;
     border-width: 0;
 }
-
-
-
