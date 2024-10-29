@@ -695,3 +695,40 @@ footer {
     white-space: nowrap;
     border-width: 0;
 }
+
+nav {
+    position: relative;
+}
+
+.menu-toggle {
+    display: none; /* Hidden on larger screens */
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.nav-menu {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    position: absolute;
+    top: 60px; /* Adjust based on your header height */
+    right: 0;
+    background-color: var(--card-background);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+
+.nav-menu.show {
+    display: flex; /* Show the menu when toggled */
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Show toggle button on mobile */
+    }
+    nav ul {
+        flex-direction: column; /* Stack items on mobile */
+    }
+}
+
