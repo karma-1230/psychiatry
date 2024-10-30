@@ -8,14 +8,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <header>
         <div class="container">
             <a href="#" class="logo">Dr. Emma Thompson</a>
-            <nav>
-                <ul class="nav-menu">
+            <button class="md:hidden" id="mobile-menu-button" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="hidden md:block">
+                <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
@@ -23,25 +26,31 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
-            <button class="cta-button">Book Consultation</button>
+        </div>
+        <div class="md:hidden" id="mobile-menu">
+            <nav class="bg-white shadow-md">
+                <ul class="py-4">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
     <main>
         <section id="home" class="hero">
             <div class="container">
-                <h1 class="animated-text">Innovative<br>Mental Wellness</h1>
-                <p>Embrace a new era of mental health with Dr. Emma Thompson</p>
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 animated-text">Innovative<br>Mental Wellness</h1>
+                <p class="text-xl mb-8">Embrace a new era of mental health with Dr. Emma Thompson</p>
                 <div class="hero-cta">
-                    <a href="#services" class="primary-btn"><i class="fas fa-brain"></i> Explore Services</a>
-                    <a href="#about" class="secondary-btn"><i class="fas fa-info-circle"></i> Learn More</a>
+                    <a href="#services" class="btn primary-btn">Explore Services</a>
+                    <a href="#about" class="btn secondary-btn">Learn More</a>
                 </div>
             </div>
             <div class="hero-background"></div>
-            <div class="scroll-indicator">
-                <span>Scroll to discover</span>
-                <div class="mouse"></div>
-            </div>
             <div class="hero-pattern"></div>
         </section>
 
@@ -80,10 +89,10 @@
         <section id="services" class="services">
             <div class="container">
                 <h2>Innovative Services</h2>
-                <div class="service-grid">
+                <div class="grid">
                     <div class="service-card" data-service="neuro-therapy">
                         <div class="service-icon">
-                            <i class="fas fa-brain"></i>
+                            <i class="fas fa-brain text-4xl text-white"></i>
                         </div>
                         <h3>Neuro-Adaptive Therapy</h3>
                         <p>Personalized treatment plans based on your brain's unique patterns.</p>
@@ -91,7 +100,7 @@
                     </div>
                     <div class="service-card" data-service="virtual-reality">
                         <div class="service-icon">
-                            <i class="fas fa-vr-cardboard"></i>
+                            <i class="fas fa-vr-cardboard text-4xl text-white"></i>
                         </div>
                         <h3>VR Immersion Therapy</h3>
                         <p>Overcome phobias and anxiety through controlled virtual environments.</p>
@@ -99,7 +108,7 @@
                     </div>
                     <div class="service-card" data-service="mindfulness">
                         <div class="service-icon">
-                            <i class="fas fa-om"></i>
+                            <i class="fas fa-meditation text-4xl text-white"></i>
                         </div>
                         <h3>AI-Guided Mindfulness</h3>
                         <p>Tailored meditation and mindfulness exercises powered by AI.</p>
@@ -107,7 +116,7 @@
                     </div>
                     <div class="service-card" data-service="telepsychiatry">
                         <div class="service-icon">
-                            <i class="fas fa-video"></i>
+                            <i class="fas fa-video text-4xl text-white"></i>
                         </div>
                         <h3>24/7 Telepsychiatry</h3>
                         <p>Round-the-clock virtual support for your mental health needs.</p>
@@ -122,17 +131,14 @@
                 <h2>Cutting-Edge Innovations</h2>
                 <div class="innovation-showcase">
                     <div class="innovation-item">
-                        <i class="fas fa-microchip"></i>
                         <h3>Brain-Computer Interface</h3>
                         <p>Exploring the future of mental health treatment through direct neural feedback.</p>
                     </div>
                     <div class="innovation-item">
-                        <i class="fas fa-robot"></i>
                         <h3>Emotional AI Assistant</h3>
                         <p>24/7 support with an AI that understands and responds to your emotional state.</p>
                     </div>
                     <div class="innovation-item">
-                        <i class="fas fa-sync-alt"></i>
                         <h3>Neuroplasticity Training</h3>
                         <p>Rewire your brain for positivity and resilience with targeted exercises.</p>
                     </div>
@@ -143,10 +149,10 @@
         <section id="resources" class="resources">
             <div class="container">
                 <h2>Digital Wellness Hub</h2>
-                <div class="resource-grid">
+                <div class="grid">
                     <div class="resource-item">
                         <div class="resource-icon">
-                            <i class="fas fa-podcast"></i>
+                            <i class="fas fa-podcast text-4xl text-primary"></i>
                         </div>
                         <h3>Mind Matters Podcast</h3>
                         <p>Weekly discussions on the latest in mental health and neuroscience.</p>
@@ -154,7 +160,7 @@
                     </div>
                     <div class="resource-item">
                         <div class="resource-icon">
-                            <i class="fas fa-book"></i>
+                            <i class="fas fa-book text-4xl text-primary"></i>
                         </div>
                         <h3>E-Book: Rewire Your Mind</h3>
                         <p>A comprehensive guide to harnessing your brain's potential.</p>
@@ -162,7 +168,7 @@
                     </div>
                     <div class="resource-item">
                         <div class="resource-icon">
-                            <i class="fas fa-chalkboard-teacher"></i>
+                            <i class="fas fa-chalkboard-teacher text-4xl text-primary"></i>
                         </div>
                         <h3>Live Webinars</h3>
                         <p>Interactive sessions on various mental health topics.</p>
@@ -170,7 +176,7 @@
                     </div>
                     <div class="resource-item">
                         <div class="resource-icon">
-                            <i class="fas fa-mobile-alt"></i>
+                            <i class="fas fa-mobile-alt text-4xl text-primary"></i>
                         </div>
                         <h3>MindTrack App</h3>
                         <p>Daily mood tracking and personalized mental wellness tips.</p>
@@ -210,8 +216,8 @@
                             <i class="fas fa-map-marker-alt"></i>
                             <p>123 Innovation Avenue, Mindful City, MC 12345</p>
                         </div>
-                        <div class="virtual-tour">
-                            <h3>Virtual Office Tour</h3>
+                        <div class="virtual-tour mt-8">
+                            <h3 class="text-xl font-semibold mb-4">Virtual Office Tour</h3>
                             <div id="virtual-tour-container"></div>
                         </div>
                     </div>
@@ -220,26 +226,28 @@
         </section>
     </main>
 
-    <footer>
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="/placeholder.svg?height=50&width=200" alt="Dr. Emma Thompson Logo">
+                    <b>Dr.Emma Thopson</b>
                     <p>Innovative Mental Wellness</p>
                 </div>
                 <nav class="footer-nav">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Accessibility</a>
+                    <ul class="flex flex-wrap justify-center md:justify-end gap-4">
+                        <li><a href="#" >Privacy Policy</a></li>
+                        <li><a href="#" >Terms of Service</a></li>
+                        <li><a href="#" >Accessibility</a></li>
+                    </ul>
                 </nav>
                 <div class="social-icons">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
-            <div class="copyright">
+            <div class="text-center">
                 <p>&copy; 2023 Dr. Emma Thompson. All rights reserved.</p>
             </div>
         </div>
