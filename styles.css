@@ -25,7 +25,7 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -640,6 +640,7 @@ footer {
 /* Responsive Styles */
 @media (max-width: 768px) {
     #mobile-menu-button {
+        margin-left: 1rem;
         background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
         color: var(--light-text-color);
         border: none;
@@ -731,6 +732,13 @@ footer {
 #mobile-menu.active {
     display: block;
 }
+.mobile-nav{
+    display: flex;
+    align-items: end;
+    margin-right: 1rem;
+    flex-direction: column;
+}
+
 
 @media (max-width: 768px) {
     #mobile-menu-button {
@@ -800,4 +808,5 @@ footer {
     .contact-wrapper > div:last-child {
         margin-bottom: 0;
     }
+
 }
